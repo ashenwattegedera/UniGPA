@@ -5,11 +5,20 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    // HARDCODED CREDENTIALS AS PER PROMPT INSTRUCTIONS FOR SIMPLICITY
-    // In production, use environment variables or a properties file.
-    private static final String URL = "jdbc:mysql://localhost:3306/uni_gpa?useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true";
-    private static final String USER = "root";
-    private static final String PASSWORD = "admin"; // Default placeholder
+    // Environment Variable Helper
+    private static String getEnv(String key, String defaultValue) {
+        String value = System.getenv(key);
+        return (value != null && !value.isEmpty()) ? value : defaultValue;
+    }
+
+    // Database Configuration
+    // Fallback values are kept for local development convenience but can be removed
+    // for strict security.
+    private static final String HOST = getEnv("DB_HOST", "dailyfixer-do-user-28100413-0.e.db.ondigitalocean.com");
+    private static final String PORT = getEnv("DB_PORT", "25060");
+    private static final String DB_NAME = getEnv("DB_NAME", "uni_gpa");
+    private static final String USER = getEnv("DB_USER", "doadmin");
+    private static final String PASSWORD = getEnv("DB_PASSWORD", "AVNS_K5A8m8iVoVX4PwYeXAs");
 
     // Static block to register driver
     static {
@@ -22,6 +31,10 @@ public class DBConnection {
     }
 
     public static Connection getConnection() throws SQLException {
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        // Construct JDBC URL with sslMode=REQUIRED
+        String url = String.format("jdbc:mysql://%s:%s/%s?sslMode=REQUIRED&serverTimezone=UTC",
+                HOST, PORT, DB_NAME);
+
+        return DriverManager.getConnection(url, USER, PASSWORD);
     }
 }

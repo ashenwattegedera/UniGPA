@@ -38,9 +38,18 @@ public class AppListener implements ServletContextListener {
                     try {
                         stmt.execute(s);
                     } catch (Exception e) {
-                        System.err.println("Error executing statement: " + s);
-                        e.printStackTrace();
-                    }                                                    
+                        String msg = e.getMessage();
+                        if (msg != null && (msg.contains("Duplicate column name") ||
+                                msg.contains("Duplicate foreign key") ||
+                                msg.contains("Duplicate key name"))) {
+                            // Ignore existing schema errors
+                            System.out.println(
+                                    "Schema update skipped (already exists): " + s.trim().split(" ")[0] + "...");
+                        } else {
+                            System.err.println("Error executing statement: " + s);
+                            e.printStackTrace();
+                        }
+                    }
                 }
             }
             System.out.println("Database Schema Initialized.");
