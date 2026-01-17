@@ -23,6 +23,10 @@ public class GPACalculator {
         GRADE_POINTS.put("E", 0.0);
     }
 
+    public static Map<String, Double> getGradePoints() {
+        return GRADE_POINTS;
+    }
+
     public static double calculateGPA(List<Module> modules) {
         if (modules == null || modules.isEmpty())
             return 0.0;

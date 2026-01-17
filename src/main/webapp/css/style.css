@@ -235,6 +235,11 @@ h3 {
     border: 1px solid transparent;
 }
 
+.btn-sm {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+}
+
 .btn-primary {
     background-color: var(--primary);
     color: var(--primary-foreground);
@@ -256,6 +261,25 @@ h3 {
 
 .btn-danger:hover {
     opacity: 0.9;
+}
+
+/* Fix for visited button links */
+.btn:visited,
+.btn:active,
+.btn:focus {
+    color: inherit;
+}
+
+.btn-primary:visited {
+    color: var(--primary-foreground);
+}
+
+.btn-secondary:visited {
+    color: var(--secondary-foreground);
+}
+
+.btn-danger:visited {
+    color: var(--destructive-foreground);
 }
 
 /* Tables */
@@ -420,4 +444,46 @@ select:focus {
     border-top: 1px solid var(--border);
     color: var(--muted-foreground);
     font-size: 0.875rem;
+}
+
+/* Theme Toggle */
+.theme-toggle {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    transition: all 0.2s;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.theme-toggle:hover {
+    background-color: var(--accent);
+    color: var(--accent-foreground);
+}
+
+
+/* Theme Toggle */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: var(--radius-md);
+    transition: background-color 0.2s;
+    font-size: 1.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background-color: var(--accent);
 }

@@ -19,6 +19,10 @@
                     style="padding: 1.5rem 2rem; display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto;">
                     <div style="font-weight: 700; font-size: 1.5rem;">🎓 UniGPA</div>
                     <div>
+                        <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode"
+                            style="margin-right: 1rem; display: inline-flex;">
+                            <!-- Icon injected by JS -->
+                        </button>
                         <a href="login" class="btn" style="color: var(--muted-foreground); margin-right: 1rem;">Log
                             in</a>
                         <a href="register" class="btn btn-primary">Get Started</a>
@@ -66,6 +70,7 @@
                     <p>&copy; <%= new java.util.Date().getYear() + 1900 %> UniGPA. Built for success.</p>
                 </footer>
 
+                <script src="js/main.js"></script>
             </body>
 
             </html>

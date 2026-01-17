@@ -10,9 +10,15 @@
 
     <body>
         <div class="container" style="max-width: 600px;">
+            <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
+                    <!-- Icon injected by JS -->
+                </button>
+            </div>
             <div class="card">
                 <h2>Add New Module</h2>
                 <form action="${pageContext.request.contextPath}/add-module" method="post">
+                    <input type="hidden" name="degreeId" value="${degreeId}">
                     <div class="form-group">
                         <label>Module Code</label>
                         <input type="text" name="code" required placeholder="e.g. CS101">
@@ -54,12 +60,13 @@
                     </div>
                     <div style="margin-top: 2rem;">
                         <button type="submit" class="btn btn-primary">Save Module</button>
-                        <a href="${pageContext.request.contextPath}/dashboard" class="btn btn-secondary"
-                            style="margin-left: 1rem;">Cancel</a>
+                        <a href="${pageContext.request.contextPath}/degree-details?id=${degreeId}"
+                            class="btn btn-secondary" style="margin-left: 1rem;">Cancel</a>
                     </div>
                 </form>
             </div>
         </div>
+        <script src="${pageContext.request.contextPath}/js/main.js"></script>
     </body>
 
     </html>

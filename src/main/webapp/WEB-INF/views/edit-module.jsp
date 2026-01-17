@@ -11,6 +11,11 @@
 
         <body>
             <div class="container" style="max-width: 600px;">
+                <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
+                    <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
+                        <!-- Icon injected by JS -->
+                    </button>
+                </div>
                 <div class="card">
                     <h2>Edit Module</h2>
                     <form action="${pageContext.request.contextPath}/edit-module" method="post">
@@ -57,12 +62,13 @@
                         </div>
                         <div style="margin-top: 2rem;">
                             <button type="submit" class="btn btn-primary">Update Module</button>
-                            <a href="${pageContext.request.contextPath}/dashboard" class="btn btn-secondary"
-                                style="margin-left: 1rem;">Cancel</a>
+                            <a href="${pageContext.request.contextPath}/degree-details?id=${module.degreeId}"
+                                class="btn btn-secondary" style="margin-left: 1rem;">Cancel</a>
                         </div>
                     </form>
                 </div>
             </div>
+            <script src="${pageContext.request.contextPath}/js/main.js"></script>
         </body>
 
         </html>

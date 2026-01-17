@@ -8,7 +8,7 @@ public class Module {
     private String grade;
     private int semester;
     private int academicYear;
-    private long userId;
+    private long degreeId;
 
     public Module() {
     }
@@ -89,11 +89,11 @@ public class Module {
         this.academicYear = academicYear;
     }
 
-    public long getUserId() {
-        return userId;
+    public long getDegreeId() {
+        return degreeId;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setDegreeId(long degreeId) {
+        this.degreeId = degreeId;
     }
 }
