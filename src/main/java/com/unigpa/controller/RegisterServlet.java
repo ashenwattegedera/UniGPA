@@ -65,7 +65,7 @@ public class RegisterServlet extends HttpServlet {
 
         try {
             userDAO.registerUser(newUser);
-            response.sendRedirect("login?success=Registration successful. Please login.");
+            response.sendRedirect(request.getContextPath() + "/login?success=Registration successful. Please login.");
         } catch (SQLException e) {
             e.printStackTrace();
             request.setAttribute("error", "Database error: " + e.getMessage());
