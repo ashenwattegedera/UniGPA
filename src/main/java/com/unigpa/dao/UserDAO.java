@@ -5,8 +5,11 @@ import com.unigpa.util.DBConnection;
 
 import java.sql.*;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class UserDAO {
+    private static final Logger LOGGER = Logger.getLogger(UserDAO.class.getName());
 
     public boolean isEmailRegistered(String email) {
         String sql = "SELECT count(*) FROM users WHERE email = ?";
@@ -19,7 +22,7 @@ public class UserDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error checking if email is registered", e);
         }
         return false;
     }
@@ -55,7 +58,7 @@ public class UserDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error checking if user exists by ID", e);
         }
         return false;
     }
@@ -79,7 +82,7 @@ public class UserDAO {
                 }
             }
         } catch (SQLException e) {
-            e.printStackTrace();
+            LOGGER.log(Level.SEVERE, "Error during user login", e);
         }
         return null; // Return null if user not found or password verification fails
     }
