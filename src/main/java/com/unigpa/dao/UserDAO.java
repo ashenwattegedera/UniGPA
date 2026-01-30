@@ -84,6 +84,6 @@ public class UserDAO {
         } catch (SQLException e) {
             LOGGER.log(Level.SEVERE, "Error during user login", e);
         }
-        return null; // Return null if user not found or password verification fails
+        return null; // Return null if user not found or password verification fails56
     }
 }
