@@ -39,7 +39,15 @@ public class LoginServlet extends HttpServlet {
         if (user != null) {
             HttpSession session = request.getSession();
             session.setAttribute("user", user);
-            response.sendRedirect(request.getContextPath() + "/dashboard");
+
+            // Check if there's a saved redirect URL from AuthFilter
+            String redirectUrl = (String) session.getAttribute("redirectAfterLogin");
+            if (redirectUrl != null && !redirectUrl.isEmpty()) {
+                session.removeAttribute("redirectAfterLogin");
+                response.sendRedirect(redirectUrl);
+            } else {
+                response.sendRedirect(request.getContextPath() + "/dashboard");
+            }
         } else {
             request.setAttribute("error", "Invalid email or password");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
