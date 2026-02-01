@@ -1,3 +1,6 @@
+/* Import Sinhala Font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Sinhala:wght@400;500;700&display=swap');
+
 :root {
     --background: rgb(255, 255, 255);
     --foreground: rgb(10, 10, 10);
@@ -31,7 +34,7 @@
     --sidebar-accent-foreground: rgb(23, 23, 23);
     --sidebar-border: rgb(229, 229, 229);
     --sidebar-ring: rgb(161, 161, 161);
-    --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sans: 'Noto Sans Sinhala', 'Iskoola Pota', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
     --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
     --radius: 0.625rem;
@@ -486,4 +489,342 @@ select:focus {
 
 .theme-toggle:hover {
     background-color: var(--accent);
+}
+
+/* ============================================ */
+/* MOBILE RESPONSIVE DESIGN - BREAKPOINTS */
+/* ============================================ */
+
+/* Small devices (phones, less than 576px) */
+@media (max-width: 575px) {
+    /* Base container */
+    .container {
+        max-width: 100%;
+        padding: 1rem;
+    }
+
+    /* Navigation */
+    nav {
+        padding: 1rem !important;
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+
+    .header {
+        flex-direction: column !important;
+        gap: 1rem !important;
+        align-items: flex-start !important;
+    }
+
+    /* Logo */
+    nav > div:first-child {
+        font-size: 1.25rem !important;
+    }
+
+    /* Navigation items container */
+    nav > div:last-child {
+        width: 100% !important;
+        flex-direction: column !important;
+        gap: 0.5rem !important;
+    }
+
+    /* Hero Section */
+    .landing-hero {
+        padding: 3rem 1rem !important;
+    }
+
+    .hero-title {
+        font-size: 2rem !important;
+        line-height: 1.3;
+        margin-bottom: 1rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem !important;
+        margin: 0 auto 1.5rem !important;
+    }
+
+    /* Buttons */
+    .btn {
+        width: auto;
+        min-width: 120px;
+        font-size: 0.75rem !important;
+        padding: 0.5rem 0.75rem !important;
+    }
+
+    .btn-sm {
+        padding: 0.25rem 0.5rem !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* Button containers - stack on mobile */
+    div[style*="display: flex"][style*="gap: 1rem"] {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    /* Features Grid */
+    .features-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+        padding: 1rem !important;
+    }
+
+    .feature-card {
+        padding: 1.5rem !important;
+    }
+
+    .feature-title {
+        font-size: 1rem !important;
+    }
+
+    .feature-desc {
+        font-size: 0.875rem !important;
+    }
+
+    /* Cards */
+    .card,
+    .glass-card {
+        padding: 1rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    /* Tables - Responsive layout */
+    table {
+        font-size: 0.75rem !important;
+        display: block;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tbody {
+        display: block;
+        width: 100%;
+    }
+
+    tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 0;
+    }
+
+    td {
+        display: block;
+        padding: 0.5rem !important;
+        text-align: right !important;
+        border-bottom: 1px solid var(--border) !important;
+        position: relative;
+        padding-left: 50% !important;
+    }
+
+    td:last-child {
+        border-bottom: none !important;
+    }
+
+    td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0.5rem;
+        font-weight: 600;
+        text-align: left;
+        width: 45%;
+    }
+
+    /* Stats Grid */
+    .stats-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+
+    .stat-card {
+        padding: 1rem !important;
+    }
+
+    .stat-value {
+        font-size: 2rem !important;
+    }
+
+    /* Forms */
+    .form-group {
+        margin-bottom: 1rem !important;
+    }
+
+    label {
+        font-size: 0.8rem !important;
+    }
+
+    input,
+    select {
+        font-size: 1rem;
+        padding: 0.75rem !important;
+    }
+
+    /* Auth Card */
+    .auth-wrapper {
+        padding: 1rem !important;
+    }
+
+    .auth-card {
+        max-width: 100% !important;
+        padding: 1.5rem !important;
+    }
+
+    .auth-card h1 {
+        font-size: 1.5rem !important;
+    }
+
+    /* Heading adjustments */
+    h1 {
+        font-size: 1.5rem !important;
+    }
+
+    h2 {
+        font-size: 1.25rem !important;
+    }
+
+    h3 {
+        font-size: 1rem !important;
+    }
+
+    /* Language Switcher */
+    .language-switcher {
+        width: 100% !important;
+    }
+
+    .language-switcher .btn {
+        flex: 1 !important;
+    }
+
+    /* Action buttons container */
+    td.actions {
+        display: flex !important;
+        justify-content: flex-end !important;
+        padding: 0.5rem !important;
+    }
+
+    td.actions > div {
+        flex-direction: column !important;
+        width: 100% !important;
+    }
+
+    td.actions .btn {
+        width: 100% !important;
+    }
+
+    /* Degree details grid */
+    .details-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Responsive table wrapper */
+    .table-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+/* Medium devices (tablets, 576px and up) */
+@media (min-width: 576px) and (max-width: 768px) {
+    .container {
+        padding: 1.5rem;
+    }
+
+    nav {
+        padding: 1.25rem 1.5rem !important;
+    }
+
+    .hero-title {
+        font-size: 2.5rem !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem !important;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+    }
+
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+    }
+
+    table {
+        font-size: 0.85rem !important;
+    }
+}
+
+/* Large devices (desktops, 769px and up) */
+@media (min-width: 769px) {
+    .container {
+        padding: 2rem;
+    }
+
+    nav {
+        padding: 1.5rem 2rem !important;
+    }
+}
+
+/* Extra large breakpoint - Ensure proper layout */
+@media (max-width: 1024px) {
+    .landing-features {
+        padding: 3rem 1.5rem;
+    }
+
+    .features-grid {
+        gap: 1.5rem;
+    }
+}
+
+/* Touch device optimizations */
+@media (hover: none) and (pointer: coarse) {
+    /* Increase button/link sizes for touch */
+    .btn {
+        min-height: 44px;
+        min-width: 44px;
+    }
+
+    input,
+    select {
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    .btn:active {
+        opacity: 0.7;
+    }
+}
+
+/* Print styles - hide unnecessary elements */
+@media print {
+    nav,
+    .language-switcher,
+    .theme-toggle,
+    .btn-danger,
+    .actions {
+        display: none !important;
+    }
+
+    .container {
+        max-width: 100%;
+        padding: 0;
+    }
+
+    .card {
+        page-break-inside: avoid;
+    }
 }

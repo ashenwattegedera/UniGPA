@@ -1,6 +1,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-    <!DOCTYPE html>
-    <html lang="en">
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<fmt:setLocale value="${sessionScope.locale}" />
+<fmt:setBundle basename="messages" />
+<!DOCTYPE html>
+<html lang="${sessionScope.lang}">
 
     <head>
         <meta charset="UTF-8">
@@ -10,58 +13,62 @@
 
     <body>
         <div class="container" style="max-width: 600px;">
-            <div style="display: flex; justify-content: flex-end; margin-bottom: 1rem;">
-                <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+                <div class="language-switcher" style="display: flex; gap: 0.25rem;">
+                    <a href="?lang=en" class="btn btn-sm ${sessionScope.lang == 'en' ? 'btn-primary' : 'btn-secondary'}" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">EN</a>
+                    <a href="?lang=si" class="btn btn-sm ${sessionScope.lang == 'si' ? 'btn-primary' : 'btn-secondary'}" style="padding: 0.35rem 0.6rem; font-size: 0.8rem;">SI</a>
+                </div>
+                <button id="theme-toggle" class="theme-toggle" title="Toggle Dark Mode" style="padding: 0.35rem;">
                     <!-- Icon injected by JS -->
                 </button>
             </div>
             <div class="card">
-                <h2>Add New Module</h2>
+                <h2><fmt:message key="module.addTitle" /></h2>
                 <form action="${pageContext.request.contextPath}/add-module" method="post">
                     <input type="hidden" name="degreeId" value="${degreeId}">
                     <div class="form-group">
-                        <label>Module Code</label>
-                        <input type="text" name="code" required placeholder="e.g. CS101">
+                        <label><fmt:message key="module.code" /></label>
+                        <input type="text" name="code" required placeholder="<fmt:message key="module.codePlaceholder" />">
                     </div>
                     <div class="form-group">
-                        <label>Module Name</label>
-                        <input type="text" name="name" required placeholder="e.g. Intro to CS">
+                        <label><fmt:message key="module.name" /></label>
+                        <input type="text" name="name" required placeholder="<fmt:message key="module.namePlaceholder" />">
                     </div>
                     <div class="form-group">
-                        <label>Credits</label>
-                        <input type="number" name="credits" required min="1" max="20" placeholder="e.g. 3">
+                        <label><fmt:message key="module.credits" /></label>
+                        <input type="number" name="credits" required min="1" max="20" placeholder="<fmt:message key="module.creditsPlaceholder" />">
                     </div>
                     <div class="form-group">
-                        <label>Grade</label>
+                        <label><fmt:message key="module.grade" /></label>
                         <select name="grade">
-                            <option value="A+">A+</option>
-                            <option value="A">A</option>
-                            <option value="A-">A-</option>
-                            <option value="B+">B+</option>
-                            <option value="B">B</option>
-                            <option value="B-">B-</option>
-                            <option value="C+">C+</option>
-                            <option value="C">C</option>
-                            <option value="C-">C-</option>
-                            <option value="D">D</option>
-                            <option value="E">E</option>
+                            <option value="A+"><fmt:message key="module.gradeA+" /></option>
+                            <option value="A"><fmt:message key="module.gradeA" /></option>
+                            <option value="A-"><fmt:message key="module.gradeA-" /></option>
+                            <option value="B+"><fmt:message key="module.gradeB+" /></option>
+                            <option value="B"><fmt:message key="module.gradeB" /></option>
+                            <option value="B-"><fmt:message key="module.gradeB-" /></option>
+                            <option value="C+"><fmt:message key="module.gradeC+" /></option>
+                            <option value="C"><fmt:message key="module.gradeC" /></option>
+                            <option value="C-"><fmt:message key="module.gradeC-" /></option>
+                            <option value="D"><fmt:message key="module.gradeD" /></option>
+                            <option value="E"><fmt:message key="module.gradeE" /></option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Semester</label>
+                        <label><fmt:message key="module.semester" /></label>
                         <select name="semester">
-                            <option value="1">Semester 1</option>
-                            <option value="2">Semester 2</option>
+                            <option value="1"><fmt:message key="module.semester1" /></option>
+                            <option value="2"><fmt:message key="module.semester2" /></option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>Academic Year</label>
+                        <label><fmt:message key="module.academicYear" /></label>
                         <input type="number" name="year" required min="1" max="5" value="1">
                     </div>
                     <div style="margin-top: 2rem;">
-                        <button type="submit" class="btn btn-primary">Save Module</button>
+                        <button type="submit" class="btn btn-primary"><fmt:message key="module.save" /></button>
                         <a href="${pageContext.request.contextPath}/degree-details?id=${degreeId}"
-                            class="btn btn-secondary" style="margin-left: 1rem;">Cancel</a>
+                            class="btn btn-secondary" style="margin-left: 1rem;"><fmt:message key="module.cancel" /></a>
                     </div>
                 </form>
             </div>
